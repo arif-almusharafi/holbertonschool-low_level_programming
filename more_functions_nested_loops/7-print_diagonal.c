@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * print_diagonal - Prints a diagonal line of the specified length.
- * @n: The length of the diagonal line.
+ * print_diagonal - Prints a diagonal line.
+ * @n: The length of the diagonal.
  */
 void print_diagonal(int n)
 {
