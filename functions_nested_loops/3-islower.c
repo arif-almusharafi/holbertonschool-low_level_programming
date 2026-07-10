@@ -1,18 +1,19 @@
 #include "main.h"
 
 /**
- * print_alphabet - prints the alphabet in lowercase
+ * _islower - checks for lowercase character
+ * @c: character to check
  *
- * Return: void
+ * Return: 1 if lowercase, 0 otherwise
  */
 int _islower(int c)
 {
-    if (c >= 'a' && c <= 'z')
-    {
-        return (1);
-    }
-    else
-    {
-        return (0);
-    }
+	if (c >= 'a' && c <= 'z')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
