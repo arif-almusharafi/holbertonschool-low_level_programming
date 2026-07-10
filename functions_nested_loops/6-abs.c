@@ -1,15 +1,15 @@
 #include "main.h"
 
 /**
- * print_alphabet - prints the alphabet in lowercase
+ * _abs - computes the absolute value of an integer
+ * n: integer to compute
  *
- * Return: void
+ * Return: the absolute value of n
  */
 int _abs(int n)
 {
+	if (n < 0)
+		return (-n);
 
-    if (n < 0)
-        return (-n);
-    else
-        return (n);
+	return (n);
 }
