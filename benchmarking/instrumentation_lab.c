@@ -55,10 +55,22 @@ int main(void)
     unsigned long checksum;
 
     /* Students must add clock-based timing and print required lines. */
+    clock_t start_time, end_time;
 
+    start_time = clock();
     build_dataset();
+    end_time = clock();
+    printf("BUILD_DATA seconds: %.6f\n", ((double)(end_time - start_time)) / CLOCKS_PER_SEC);
+
+    start_time = clock();
     process_dataset();
+    end_time = clock();
+    printf("PROCESS seconds: %.6f\n", ((double)(end_time - start_time)) / CLOCKS_PER_SEC);
+
+    start_time = clock();
     checksum = reduce_checksum();
+    end_time = clock();
+    printf("REDUCE seconds: %.6f\n", ((double)(end_time - start_time)) / CLOCKS_PER_SEC);
 
     if (checksum == 0ul)
         printf("impossible\n");
