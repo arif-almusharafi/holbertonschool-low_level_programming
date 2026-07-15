@@ -14,6 +14,41 @@ int main(void)
         {
             printf("Bye!\n");
         }
+        else if (operator == 1)
+        {
+            int a, b;
+            printf("Enter two numbers: ");
+            scanf("%d %d", &a, &b);
+            printf("Result: %d\n", a + b);
+        }
+        else if (operator == 2)
+        {
+            int a, b;
+            printf("Enter two numbers: ");
+            scanf("%d %d", &a, &b);
+            printf("Result: %d\n", a - b);
+        }
+        else if (operator == 3)
+        {
+            int a, b;
+            printf("Enter two numbers: ");
+            scanf("%d %d", &a, &b);
+            printf("Result: %d\n", a * b);
+        }
+        else if (operator == 4)
+        {
+            int a, b;
+            printf("Enter two numbers: ");
+            scanf("%d %d", &a, &b);
+            if (b != 0)
+            {
+                printf("Result: %.2f\n", (float)a / b);
+            }
+            else
+            {
+                printf("Error: Division by zero\n");
+            }
+        }
         else
         {
             printf("Invalid operator\n");
