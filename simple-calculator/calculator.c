@@ -3,7 +3,6 @@
 int main(void)
 {
     int operator;
-    int a,b;
 
     printf("Simple Calculator\n");
 
