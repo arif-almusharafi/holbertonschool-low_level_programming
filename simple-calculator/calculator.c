@@ -6,17 +6,18 @@ int main(void)
 
     printf("Simple Calculator\n");
 
-
-    printf("1) Add\n2) Subtract\n3) Multiply\n4) Divide\n0) Quit\n");
-    scanf("%d", &operator);
-    if (operator == 0)
+    while (operator != 0)
     {
-        printf("Bye!\n");
+        printf("1) Add\n2) Subtract\n3) Multiply\n4) Divide\n0) Quit\n");
+        scanf("%d", &operator);
+        if (operator == 0)
+        {
+            printf("Bye!\n");
+        }
+        else
+        {
+            printf("Invalid operator\n");
+        }
     }
-    else
-    {
-        printf("Invalid operator\n");
-    }
-
     return 0;
 }
