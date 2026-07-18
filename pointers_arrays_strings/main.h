@@ -26,4 +26,5 @@ char *cap_string(char *str);
 char *leet(char *str);
 void *_memset(void *s, int c, size_t n);
 void *_memcpy(void *dest, const void *src, size_t n);
+char *_strchr(char *s, char c);
 #endif
