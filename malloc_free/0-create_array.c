@@ -4,30 +4,21 @@
 
 char *create_array(unsigned int size, char c)
 {
-    int number = 0;
-    printf("Enter the number of Array: ");
-    scanf("%d", &number);
-
-    char *c = malloc(number * sizeof(char));
-
-    if (c == NULL)
+    if (size == 0)
     {
-        printf("Memory allocation failed\n");
-        return 1;
+        return NULL;
     }
 
-    for(int i = 0; i < number; i++)
+    char *array = malloc(size * sizeof(char));
+
+    if (array == 0)
     {
-        printf("Enter element #%d", i + 1);
-        scanf(" %c", &c[i]);
+        return NULL;
     }
 
-    for(int i = 0; i < number; i++)
+    for(int i = 0; i < size; i++)
     {
-        printf("%c ", c[i]);
+        array[i] = c;
     }
-
-    free(c);
-    c = NULL;
 
 }
