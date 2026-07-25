@@ -2,16 +2,17 @@
 #include <stdlib.h>
 
 /**
- * free_grid - Frees a 2-dimensional array of integers.
- * @grid: The 2-dimensional array of integers to be freed.
- * @height: The height of grid.
+ * malloc_checked - Allocates memory using malloc.
+ * @b: The number of bytes to be allocated.
+ *
+ * Return: A pointer to the allocated memory.
  */
-void free_grid(int **grid, int height)
+void *malloc_checked(unsigned int b)
 {
-	int index;
+	void *mem = malloc(b);
 
-	for (index = 0; index < height; index++)
-		free(grid[index]);
+	if (mem == NULL)
+		exit(98);
 
-	free(grid);
+	return (mem);
 }
