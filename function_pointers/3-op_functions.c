@@ -1,21 +1,45 @@
-    int op_add(int a, int b)
-    {
-        return a + b;
-    }
+/*
+ * File: 3-op_functions.c
+ * Auth: Brennan D Baraban
+ */
 
-    int op_sub(int a, int b)
-    {
-        return a - b;
-    }
-    int op_mul(int a, int b)
-    {
-       return a * b;
-    }
-    int op_div(int a, int b)
-    {
-       return a / b;
-    }
-    int op_mod(int a, int b)
-    {
-       return a % b;
-    }
+#include "3-calc.h"
+
+int op_add(int a, int b);
+int op_sub(int a, int b);
+int op_mul(int a, int b);
+int op_div(int a, int b);
+int op_mod(int a, int b);
+
+/**
+ * op_add - Returns the sum of two numbers.
+ * @a: The first number.
+ * @b: The second number.
+ *
+ * Return: The sum of a and b.
+ */
+
+
+
+
+int op_add(int a, int b)
+{
+   return a + b;
+}
+
+int op_sub(int a, int b)
+{
+   return a - b;
+}
+int op_mul(int a, int b)
+{
+   return a * b;
+}
+int op_div(int a, int b)
+{
+   return a / b;
+}
+int op_mod(int a, int b)
+{
+   return a % b;
+}
