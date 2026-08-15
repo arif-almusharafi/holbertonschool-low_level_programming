@@ -4,6 +4,7 @@
  */
 
 #include "lists.h"
+#include <stdlib.h>
 
 /**
  * free_dlistint - Frees a linked dlistint_t list.
