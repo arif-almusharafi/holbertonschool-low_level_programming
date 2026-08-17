@@ -1,59 +1,32 @@
 #include "main.h"
 
-
+/**
+ * helper - Finds the natural square root recursively
+ * @n: Number to find the square root of
+ * @current: Current number being tested
+ *
+ * Return: The natural square root, or -1 if none exists
+ */
 int helper(int n, int current)
 {
-    if (current * current < n)
-    {
-        return(helper(current + 1));
-    }
-    else if (current * current > n)
-    {
-        return -1;
-    }
-    else if (current * current == n)
-    {
-        return current;
-    }
-
+	if (current * current < n)
+		return (helper(n, current + 1));
+	else if (current * current > n)
+		return (-1);
+	else
+		return (current);
 }
 
-
+/**
+ * _sqrt_recursion - Returns the natural square root of a number
+ * @n: Number to find the square root of
+ *
+ * Return: The natural square root, or -1 if none exists
+ */
 int _sqrt_recursion(int n)
 {
-    int current = 0;
-    if (current * current != n)
-    {
-        return -1;
-    }
-    else if (current * current == n)
-    {
-        return 0;
-    }
+	if (n < 0)
+		return (-1);
 
-    else if (n == 0)
-    {
-        return 1;
-    }
-
-    return (_sqrt_recursion(current));
-}
-
-int main(void)
-{
-    int r;
-
-    r = _sqrt_recursion(1);
-    printf("%d\n", r);
-    r = _sqrt_recursion(1024);
-    printf("%d\n", r);
-    r = _sqrt_recursion(16);
-    printf("%d\n", r);
-    r = _sqrt_recursion(17);
-    printf("%d\n", r);
-    r = _sqrt_recursion(25);
-    printf("%d\n", r);
-    r = _sqrt_recursion(-1);
-    printf("%d\n", r);
-    return (0);
+	return (helper(n, 0));
 }
