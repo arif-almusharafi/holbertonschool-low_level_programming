@@ -21,10 +21,10 @@ int append_text_to_file(const char *filename, char *text_content)
 		return -1;
 
 	/* 2. Open the existing file for writing at the end */
-	fd = open(filename, O_WRONLY);
+	fd = open(filename, O_WRONLY | O_APPEND);
 
 	/* 3. Check if open failed */
-	if (fd == NULL)
+	if (fd == -1)
 	{
 		close(fd);
 		return -1;
@@ -32,8 +32,10 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	/* 4. If text_content is NULL */
 	if (text_content == NULL)
+	{
+		close(fd);
 		return 1;
-
+	}
 	/* 5. Get length of text_content */
 	text_len = strlen(text_content);
 
