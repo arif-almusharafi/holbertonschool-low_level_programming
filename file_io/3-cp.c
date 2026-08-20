@@ -58,6 +58,50 @@ int copy_file(int fd_from, int fd_to, char *filename)
 }
 
 /**
+ * open_source - Opens the source file
+ * @filename: Source filename
+ *
+ * Return: File descriptor or -1 on failure
+ */
+int open_source(char *filename)
+{
+	int fd;
+
+	fd = open(filename, O_RDONLY);
+
+	if (fd == -1)
+	{
+		dprintf(STDERR_FILENO,
+			"Error: Can't read from file %s\n", filename);
+		return (-1);
+	}
+
+	return (fd);
+}
+
+/**
+ * open_destination - Opens or creates the destination file
+ * @filename: Destination filename
+ *
+ * Return: File descriptor or -1 on failure
+ */
+int open_destination(char *filename)
+{
+	int fd;
+
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+
+	if (fd == -1)
+	{
+		dprintf(STDERR_FILENO,
+			"Error: Can't write to %s\n", filename);
+		return (-1);
+	}
+
+	return (fd);
+}
+
+/**
  * main - Copies the content of one file to another file
  * @argc: Number of arguments
  * @argv: Array of arguments
@@ -76,23 +120,18 @@ int main(int argc, char **argv)
 		return (97);
 	}
 
-	fd_from = open(argv[1], O_RDONLY);
+	fd_from = open_source(argv[1]);
 	if (fd_from == -1)
-	{
-		dprintf(STDERR_FILENO,
-			"Error: Can't read from file %s\n", argv[1]);
 		return (98);
-	}
 
-	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fd_to = open_destination(argv[2]);
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO,
-			"Error: Can't write to %s\n", argv[2]);
+		close(fd_from);
 		return (99);
 	}
 
-	result = copy_file(fd_from, fd_to, argv[1]);
+	result = copy_file(fd_from, fd_to, argv[2]);
 	if (result != 0)
 	{
 		close(fd_from);
